@@ -1,4 +1,10 @@
 celery[redis]
+dateutils
+environs
 fabric
+pydantic
+python-frontmatter
+python-slugify
 redis
+requests
 typer
