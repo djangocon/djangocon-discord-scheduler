@@ -1,0 +1,6 @@
+.dockerignore
+.git
+.gitignore
+__pycache__
+celerybeat-schedule
+docker-compose.yml

@@ -1,0 +1,40 @@
+version: "3.8"
+
+services:
+  redis:
+    image: "redis:6.2"
+    restart: "unless-stopped"
+    stop_grace_period: "3s"
+    volumes:
+      - "redis:/data"
+
+  beat:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: ['celery', '-A', 'app', 'beat', '--loglevel=info']
+    depends_on:
+      - redis
+    env_file:
+      - ".env"
+    restart: "unless-stopped"
+    stop_grace_period: "3s"
+    volumes:
+      - ./:/app/
+
+  worker:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: ['celery', '-A', 'app', 'worker', '--loglevel=info']
+    depends_on:
+      - redis
+    env_file:
+      - ".env"
+    restart: "unless-stopped"
+    stop_grace_period: "3s"
+    volumes:
+      - ./:/app/
+
+volumes:
+  redis: {}
