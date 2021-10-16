@@ -27,7 +27,16 @@ alias up := docker-compose-up
 @fmt:
     just --fmt --unstable
 
-@pip-compile:
+@pip-compile-bootstrap:
     -rm -rf requirements.txt
     pip install --upgrade --requirement=requirements.in
     pip-compile -r requirements.in
+
+@pip-compile:
+    # -rm -rf requirements.txt
+    # pip install --upgrade --requirement=requirements.in
+    # pip-compile -r requirements.in
+    docker-compose run --rm worker \
+        pip install --upgrade --requirement ./requirements.in && \
+        rm -rf ./requirements.txt && \
+        pip-compile ./requirements.in --output-file ./requirements.txt
