@@ -4,7 +4,10 @@
 
 ```shell
 # setup our env variables
-cp .env-dist .env
+cp .docker-env-dist .docker-env
+
+# cat environment variables to see if anything is missing
+cat .docker-env
 
 # to build
 DOCKER_BUILDKIT=1 docker-compose build
