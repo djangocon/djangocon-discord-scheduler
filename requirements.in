@@ -2,6 +2,7 @@ celery[redis]
 dateutils
 environs
 fabric
+jinja2
 pydantic
 python-frontmatter
 python-slugify

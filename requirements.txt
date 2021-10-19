@@ -46,9 +46,13 @@ idna==3.3
     # via requests
 invoke==1.6.0
     # via fabric
+jinja2==3.0.2
+    # via -r ./requirements.in
 kombu==5.1.0
     # via celery
-marshmallow==3.13.0
+markupsafe==2.0.1
+    # via jinja2
+marshmallow==3.14.0
     # via environs
 paramiko==2.8.0
     # via fabric
