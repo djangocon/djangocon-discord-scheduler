@@ -21,6 +21,7 @@ import frontmatter
 from jinja2 import Template
 import pytz
 import requests
+from slugify import slugify
 import typer
 
 
@@ -260,6 +261,7 @@ def copy_schedule_to_drafts(
 
             new_post["category"] = post["category"]
             new_post["date"] = post["date"]
+            new_post["slug"] = slugify(post["title"])
             new_post["title"] = post["title"]
 
             # TODO: we can customize what gets included with Discord
@@ -289,7 +291,6 @@ def copy_schedule_to_drafts(
                 new_post.content = body["content"]
 
                 destination = DRAFT_FOLDER.joinpath(filename.name)
-
                 typer.echo(f"copying {filename.name} to {destination.parent}")
                 destination.write_text(frontmatter.dumps(new_post))
 
@@ -321,14 +322,22 @@ def copy_schedule_to_drafts(
                 # Copy only what we need to "new_post"
                 new_post.content = body["content"]
                 new_post["date"] = timestamp - relativedelta(minutes=5, seconds=0)
-
+                date = new_post["date"]
+                slug = slugify(new_post["title"])
+                talk_filename = "-".join(
+                    [
+                        f"{date.year:04}",
+                        f"{date.month:02}",
+                        f"{date.day:02}",
+                        f"{date.hour:02}",
+                        f"{date.minute:02}",
+                        f"{slug}-five-minutes.md",
+                    ]
+                )
                 # Hack for timezone formatting changing to "-05:00"
                 new_post["date"] = str(new_post["date"]).replace("-05:00", " -0500")
 
-                destination = DRAFT_FOLDER.joinpath(
-                    str(filename.name).replace(".md", "-five-minutes.md")
-                )
-
+                destination = DRAFT_FOLDER.joinpath(talk_filename)
                 # typer.echo(f"copying {filename.name} to {destination.parent}")
                 destination.write_text(frontmatter.dumps(new_post))
                 # rewrite_post = frontmatter.loads(destination.read_text())
