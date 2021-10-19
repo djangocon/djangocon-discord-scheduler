@@ -105,7 +105,7 @@ def main(
 
             # Five Minutes...
             template_filename = Path(
-                "templates", f"{post['category']}-five-minutes.html"
+                "templates", f"{post['category']}-preview.html"
             )
             if template_filename.exists():
                 template = Template(template_filename.read_text())
@@ -137,7 +137,7 @@ def main(
                         f"{date.day:02}",
                         f"{date.hour:02}",
                         f"{date.minute:02}",
-                        f"{slug}-five-minutes.md",
+                        f"{slug}-preview.md",
                     ]
                 )
                 # Hack for timezone formatting changing to "-05:00"
