@@ -52,7 +52,10 @@ def main(
             timestamp = parse(post["date"])
 
         timestamp = timestamp.astimezone(CONFERENCE_TZ)
-        if post_now or timestamp <= now:
+        print(f"timestamp=={timestamp}")
+        print(f"now=={now}")
+        print(timestamp <= now)
+        if timestamp <= now:
             body = {
                 "content": post.content,
                 "allowed_mentions": {
@@ -69,8 +72,7 @@ def main(
 
             typer.secho(f"moving {filename.name} to the outbox", fg="green")
             destination = OUTBOX_FOLDER.joinpath(filename.name)
-            if not destination.exists():
-                filename.rename(destination)
+            filename.rename(destination)
 
 
 if __name__ == "__main__":
