@@ -1,3 +1,3 @@
-🌮 It's time for a lunch break! {% capture day_of_week %}{{ timestamp | date: "%A"}}{% endcapture %}
+🌮 It's time for a lunch break!
 
-We'll be back in about 45 minutes with more talks, but until then, visit our SpatialChat (ticket holders, check your email for a link) for some socialization{% if day_of_week == "Friday" %}, virtual visits with job recruiters,{% endif %} and a live session from [DJ Rana Ransom](https://twitter.com/@_tagine).
+We'll be back in about 45 minutes with more talks, but until then, visit our SpatialChat (ticket holders, check your email for a link) for some socialization{% if timestamp.weekday == 4 %}, virtual visits with job recruiters,{% endif %} and a live session from [DJ Rana Ransom](https://twitter.com/@_tagine).
