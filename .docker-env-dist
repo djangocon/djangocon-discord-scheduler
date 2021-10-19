@@ -1,0 +1,6 @@
+BROKER_URL=redis://redis:6379/0
+RESULT_BACKEND=redis://redis:6379/0
+DISCORD_WEBHOOK=
+DRAFT_FOLDER=/app/_drafts
+INBOX_FOLDER=/app/_inbox
+OUTBOX_FOLDER=/app/_outbox
