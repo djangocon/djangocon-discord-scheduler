@@ -19,7 +19,13 @@ OUTBOX_FOLDER = Path(env("OUTBOX_FOLDER", default="_outbox"))
 
 
 @app.command()
-def main():
+def main(
+    post_now: bool = typer.Option(
+        default=False,
+        help="Pretend the talks are happening now instead of queueing the talks up later "
+        "(for testing)",
+    )
+):
     now = datetime.datetime.now().astimezone(CONFERENCE_TZ)
     typer.secho(f"now: {now}", fg="yellow")
 
@@ -35,7 +41,7 @@ def main():
         typer.secho(f"OUTBOX_FOLDER '{OUTBOX_FOLDER}' does not exist", fg="red")
         raise typer.Exit()
 
-    filenames = INBOX_FOLDER.glob("*.md")
+    filenames = sorted(list(INBOX_FOLDER.glob("*.md")))
     for filename in filenames:
         post = frontmatter.loads(filename.read_text())
         if isinstance(post["date"], datetime.datetime):
@@ -44,8 +50,11 @@ def main():
             timestamp = parse(post["date"])
 
         timestamp = timestamp.astimezone(CONFERENCE_TZ)
-        if timestamp <= now:
-            typer.secho(f"I would move {filename}", fg="green")
+        if post_now or timestamp <= now:
+            typer.secho(f"moving {filename.name} to the outbox", fg="green")
+            destination = OUTBOX_FOLDER.joinpath(filename.name)
+            if not destination.exists():
+                filename.rename(destination)
 
 
 if __name__ == "__main__":
