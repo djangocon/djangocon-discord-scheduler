@@ -1,13 +1,13 @@
 ---
 category: break
-date: 2021-10-22 14:59:00 -0500
+date: 2021-10-22 14:54:00 -0500
 slug: break
 title: Break
 ---
 
-🚶 Time for a quick break!
+🚶 Coming up in five minutes: break!
 
-:alarm_clock: The break starts at [14:59 CDT](https://time.is/compare/0259PM_22_October_2021_in_Chicago)
+
 
 Get up, stretch your legs, grab a snack, etc.
 
