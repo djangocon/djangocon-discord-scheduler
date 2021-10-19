@@ -1,6 +1,7 @@
 ---
 category: talk
 date: 2021-10-23 11:00:00 -0500
+slug: wagtail-live-bringing-a-live-blogging-tool-to-the-django-ecosystem
 title: 'Wagtail Live: bringing a live blogging tool to the Django ecosystem'
 ---
 

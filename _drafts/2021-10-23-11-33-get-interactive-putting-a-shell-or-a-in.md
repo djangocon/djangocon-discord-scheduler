@@ -1,6 +1,7 @@
 ---
 category: talk
 date: 2021-10-23 11:33:00 -0500
+slug: get-interactive-putting-a-shell-or-a-desktop-in-your-django-app
 title: Get interactive! Putting a shell (or a desktop) in your Django app
 ---
 

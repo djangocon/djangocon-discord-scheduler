@@ -1,6 +1,7 @@
 ---
 category: talk
 date: 2021-10-22 17:43:00 -0500
+slug: what-is-deployment-anyway
 title: What is deployment, anyway?
 ---
 

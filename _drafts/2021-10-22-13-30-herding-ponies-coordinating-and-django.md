@@ -1,6 +1,7 @@
 ---
 category: talk
 date: 2021-10-22 13:30:00 -0500
+slug: herding-ponies-coordinating-and-automating-django-upgrades-across-100-repositories
 title: 'Herding Ponies: Coordinating and Automating Django Upgrades Across 100+ Repositories'
 ---
 

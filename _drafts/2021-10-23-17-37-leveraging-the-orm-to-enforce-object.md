@@ -1,6 +1,7 @@
 ---
 category: talk
 date: 2021-10-23 17:37:00 -0500
+slug: leveraging-the-orm-to-enforce-object-level-permissions
 title: Leveraging the ORM to enforce object-level permissions
 ---
 

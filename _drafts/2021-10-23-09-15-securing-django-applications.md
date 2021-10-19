@@ -1,6 +1,7 @@
 ---
 category: talk
 date: 2021-10-23 09:15:00 -0500
+slug: securing-django-applications
 title: Securing Django Applications
 ---
 

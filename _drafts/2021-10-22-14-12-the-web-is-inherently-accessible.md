@@ -1,6 +1,7 @@
 ---
 category: talk
 date: 2021-10-22 14:12:00 -0500
+slug: the-web-is-inherently-accessible
 title: The Web is Inherently Accessible
 ---
 

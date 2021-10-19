@@ -1,6 +1,7 @@
 ---
 category: talk
 date: 2021-10-23 12:09:00 -0500
+slug: modern-web-testing-going-beyond-selenium
 title: 'Modern Web Testing: Going Beyond Selenium'
 ---
 

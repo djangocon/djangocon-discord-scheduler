@@ -1,6 +1,7 @@
 ---
 category: talk
 date: 2021-10-22 10:31:00 -0500
+slug: illuminate-data-with-visualization
 title: Illuminate Data with Visualization
 ---
 

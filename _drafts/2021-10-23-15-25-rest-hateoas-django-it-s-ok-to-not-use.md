@@ -1,6 +1,7 @@
 ---
 category: talk
 date: 2021-10-23 15:25:00 -0500
+slug: rest-hateoas-django-it-s-ok-to-not-use-json-or-javascript
 title: REST, HATEOAS & Django - It's OK to not use JSON... or Javascript
 ---
 

@@ -1,6 +1,7 @@
 ---
 category: talk
 date: 2021-10-23 17:44:00 -0500
+slug: demystifying-natural-language-processing-across-several-industry-verticals
 title: Demystifying Natural Language Processing across Several Industry Verticals
 ---
 

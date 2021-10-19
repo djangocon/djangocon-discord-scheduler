@@ -1,6 +1,7 @@
 ---
 category: talk
 date: 2021-10-23 17:05:00 -0500
+slug: bootstrapping-your-local-python-environment
 title: Bootstrapping your Local Python Environment
 ---
 

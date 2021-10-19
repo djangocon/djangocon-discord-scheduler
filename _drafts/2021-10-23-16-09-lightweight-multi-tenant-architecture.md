@@ -1,6 +1,7 @@
 ---
 category: talk
 date: 2021-10-23 16:09:00 -0500
+slug: lightweight-multi-tenant-architecture-for-django-applications
 title: Lightweight Multi-Tenant Architecture for Django Applications
 ---
 

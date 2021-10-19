@@ -1,6 +1,7 @@
 ---
 category: talk
 date: 2021-10-23 18:41:00 -0500
+slug: writing-tests-for-a-django-application-doesn-t-have-to-suck-the-simplest-way-to-write-short-fast-and-maintainable-tests
 title: 'Writing tests for a Django application doesn''t have to suck: the simplest
   way to write short, fast and maintainable tests'
 ---

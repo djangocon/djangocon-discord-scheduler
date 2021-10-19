@@ -1,6 +1,7 @@
 ---
 category: talk
 date: 2021-10-23 10:45:00 -0500
+slug: usando-filas-de-tareas-task-queues-en-aplicaciones-web
 title: Usando filas de tareas (task queues) en aplicaciones web
 ---
 

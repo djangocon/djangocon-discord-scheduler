@@ -1,6 +1,7 @@
 ---
 category: talk
 date: 2021-10-23 11:38:00 -0500
+slug: scaling-django-to-500-apps
 title: Scaling Django to 500 apps
 ---
 

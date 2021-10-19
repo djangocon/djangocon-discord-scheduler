@@ -1,6 +1,7 @@
 ---
 category: talk
 date: 2021-10-23 11:55:00 -0500
+slug: pydon-ts-write-elegant-python-code-v1-1
 title: Pydon'ts – Write elegant Python code (v1.1)
 ---
 

@@ -1,6 +1,7 @@
 ---
 category: talk
 date: 2021-10-22 15:30:00 -0500
+slug: desmitificando-el-mantenimiento
 title: Desmitificando el Mantenimiento
 ---
 

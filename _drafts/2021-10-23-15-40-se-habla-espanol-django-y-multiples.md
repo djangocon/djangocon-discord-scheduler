@@ -1,6 +1,7 @@
 ---
 category: talk
 date: 2021-10-23 15:40:00 -0500
+slug: se-habla-espanol-django-y-multiples-idiomas
 title: 'SE HABLA ESPAÑOL: Django y multiples idiomas.'
 ---
 

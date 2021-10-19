@@ -1,6 +1,7 @@
 ---
 category: talk
 date: 2021-10-22 10:00:00 -0500
+slug: opening-remarks-and-orientation
 title: Opening Remarks and Orientation
 ---
 

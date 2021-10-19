@@ -1,6 +1,7 @@
 ---
 category: talk
 date: 2021-10-23 16:50:00 -0500
+slug: rapid-prototyping-in-django
 title: Rapid Prototyping in Django
 ---
 

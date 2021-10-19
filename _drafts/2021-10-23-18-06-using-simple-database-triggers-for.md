@@ -1,6 +1,7 @@
 ---
 category: talk
 date: 2021-10-23 18:06:00 -0500
+slug: using-simple-database-triggers-for-complex-django-problems
 title: Using simple database triggers for complex Django problems
 ---
 

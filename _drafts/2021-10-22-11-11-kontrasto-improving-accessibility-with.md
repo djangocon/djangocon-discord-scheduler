@@ -1,6 +1,7 @@
 ---
 category: talk
 date: 2021-10-22 11:11:00 -0500
+slug: kontrasto-improving-accessibility-with-python
 title: 'Kontrasto: improving accessibility with Python'
 ---
 

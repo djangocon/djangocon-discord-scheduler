@@ -1,6 +1,7 @@
 ---
 category: talk
 date: 2021-10-23 09:25:00 -0500
+slug: busqueda-de-texto-completo-fts-en-tu-sitio-web-mi-proyecto-de-google-summer-of-code
 title: Búsqueda de texto completo (FTS) en tu sitio web – mi proyecto de Google Summer
   of Code
 ---

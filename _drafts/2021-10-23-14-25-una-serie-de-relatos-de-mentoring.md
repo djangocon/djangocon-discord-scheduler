@@ -1,6 +1,7 @@
 ---
 category: talk
 date: 2021-10-23 14:25:00 -0500
+slug: una-serie-de-relatos-de-mentoring
 title: Una serie de relatos de mentoring
 ---
 

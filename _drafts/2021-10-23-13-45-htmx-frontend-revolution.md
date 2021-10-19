@@ -1,6 +1,7 @@
 ---
 category: talk
 date: 2021-10-23 13:45:00 -0500
+slug: htmx-frontend-revolution
 title: 'HTMX: Frontend Revolution'
 ---
 

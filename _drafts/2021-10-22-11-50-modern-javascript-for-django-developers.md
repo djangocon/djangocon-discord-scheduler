@@ -1,6 +1,7 @@
 ---
 category: talk
 date: 2021-10-22 11:50:00 -0500
+slug: modern-javascript-for-django-developers
 title: Modern JavaScript for Django Developers
 ---
 

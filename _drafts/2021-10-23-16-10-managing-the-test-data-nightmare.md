@@ -1,6 +1,7 @@
 ---
 category: talk
 date: 2021-10-23 16:10:00 -0500
+slug: managing-the-test-data-nightmare
 title: Managing the Test Data Nightmare
 ---
 

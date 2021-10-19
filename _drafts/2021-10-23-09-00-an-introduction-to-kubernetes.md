@@ -1,6 +1,7 @@
 ---
 category: talk
 date: 2021-10-23 09:00:00 -0500
+slug: an-introduction-to-kubernetes
 title: An Introduction to Kubernetes ☸️
 ---
 

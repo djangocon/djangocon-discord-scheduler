@@ -1,6 +1,7 @@
 ---
 category: talk
 date: 2021-10-23 13:30:00 -0500
+slug: design-django-models-such-that-your-future-self-will-thank-you
 title: "Design django models such that your future self will thank you \U0001F44B"
 ---
 

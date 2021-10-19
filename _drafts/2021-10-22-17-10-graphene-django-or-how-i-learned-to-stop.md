@@ -1,6 +1,7 @@
 ---
 category: talk
 date: 2021-10-22 17:10:00 -0500
+slug: graphene-django-or-how-i-learned-to-stop-resting-and-love-the-graph
 title: 'graphene-django or: How I learned to stop RESTing and Love the Graph'
 ---
 
