@@ -1,25 +1,16 @@
-"""Iterate through our talks and announce them to discord when it's time to go see the talk.
-
-TODO:
-1. Decide how we want to do the actual scheduling: celery? event loop like tornado? cron job?
-2. Iterate over all the talks and test it in Discord
-3. Delete all the announcements before we invite anyone in
-"""
-from pathlib import Path
 import datetime
-from dateutil.parser import parse
-from environs import Env
 import frontmatter
 import pytz
 import typer
 
+from dateutil.parser import parse
+from environs import Env
+from pathlib import Path
 
-IGNORED_CATEGORIES = ["break", "lunch", "social-hour"]
 
 CONFERENCE_TZ = pytz.timezone("America/Chicago")
 
 app = typer.Typer(help="Awesome Announce Talks")
-
 env = Env()
 
 DRAFT_FOLDER = Path(env("DRAFT_FOLDER", default="_drafts"))

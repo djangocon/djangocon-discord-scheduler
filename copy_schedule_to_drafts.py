@@ -23,7 +23,6 @@ CONFERENCE_TZ = pytz.timezone("America/Chicago")
 
 
 app = typer.Typer(help="Awesome Announce Talks")
-
 env = Env()
 
 DRAFT_FOLDER = Path(env("DRAFT_FOLDER", default="_drafts"))
