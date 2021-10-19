@@ -221,35 +221,5 @@ def main(
     post_about_talks(path=talks_path, webhook_url=webhook_url, post_now=post_now)
 
 
-@cli_app.command()
-def process_folder():
-    now = datetime.datetime.now().astimezone(CONFERENCE_TZ)
-    typer.secho(f"now: {now}", fg="yellow")
-
-    if not DRAFT_FOLDER.exists():
-        typer.secho(f"DRAFT_FOLDER '{DRAFT_FOLDER}' does not exist", fg="red")
-        raise typer.Exit()
-
-    if not INBOX_FOLDER.exists():
-        typer.secho(f"INBOX_FOLDER '{INBOX_FOLDER}' does not exist", fg="red")
-        raise typer.Exit()
-
-    if not OUTBOX_FOLDER.exists():
-        typer.secho(f"OUTBOX_FOLDER '{OUTBOX_FOLDER}' does not exist", fg="red")
-        raise typer.Exit()
-
-    filenames = INBOX_FOLDER.glob("*.md")
-    for filename in filenames:
-        post = frontmatter.loads(filename.read_text())
-        if isinstance(post["date"], datetime.datetime):
-            timestamp = post["date"]
-        else:
-            timestamp = parse(post["date"])
-
-        timestamp = timestamp.astimezone(CONFERENCE_TZ)
-        if timestamp <= now:
-            typer.secho(f"I would move {filename}", fg="green")
-
-
 if __name__ == "__main__":
     cli_app()
