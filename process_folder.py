@@ -2,6 +2,7 @@ import datetime
 import frontmatter
 import pytz
 import typer
+import requests
 
 from dateutil.parser import parse
 from environs import Env
@@ -13,6 +14,7 @@ CONFERENCE_TZ = pytz.timezone("America/Chicago")
 app = typer.Typer(help="Awesome Announce Talks")
 env = Env()
 
+DISCORD_WEBHOOK = env("DISCORD_WEBHOOK", default=None)
 DRAFT_FOLDER = Path(env("DRAFT_FOLDER", default="_drafts"))
 INBOX_FOLDER = Path(env("INBOX_FOLDER", default="_inbox"))
 OUTBOX_FOLDER = Path(env("OUTBOX_FOLDER", default="_outbox"))
@@ -51,6 +53,20 @@ def main(
 
         timestamp = timestamp.astimezone(CONFERENCE_TZ)
         if post_now or timestamp <= now:
+            body = {
+                "content": post.content,
+                "allowed_mentions": {
+                    "parse": ["everyone"],
+                    "users": [],
+                },
+            }
+
+            """Post the body to the webhook URL"""
+            response = requests.post(DISCORD_WEBHOOK, json=body)
+            response.raise_for_status()
+
+            # TODO: fallback into an error folder possibly...
+
             typer.secho(f"moving {filename.name} to the outbox", fg="green")
             destination = OUTBOX_FOLDER.joinpath(filename.name)
             if not destination.exists():

@@ -7,6 +7,7 @@ from environs import Env
 from typing import Any, Literal
 
 # from announce_talk import post_about_talks
+from process_folder import main as process_folder
 
 
 environ.setdefault("CELERY_CONFIG_MODULE", "celery_config")
@@ -23,12 +24,24 @@ app.conf.beat_schedule = {
         "schedule": crontab(),
         "args": (16, 16),
     },
+    "process-folder": {
+        "task": "app.schedule_process_folder",
+        "schedule": crontab(),
+    },
 }
 
 
 @app.task
 def add(x, y):
     return x + y
+
+
+@app.task(
+    autoretry_for=[requests.exceptions.RequestException],
+    retry_backoff=True,
+)
+def schedule_process_folder():
+    process_folder()
 
 
 @app.task(
