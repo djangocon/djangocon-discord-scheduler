@@ -23,7 +23,7 @@ import requests
 import typer
 
 
-IGNORED_TALK_TYPES = ["break", "lunch", "social hour"]
+IGNORED_CATEGORIES = ["break", "lunch", "social-hour"]
 
 CONFERENCE_TZ = pytz.timezone("America/Chicago")
 # That 885 number is a reference to the #live-q-and-a channel.
@@ -56,6 +56,10 @@ cli_app = typer.Typer(help="Awesome Announce Talks")
 
 env = Env()
 
+DRAFT_FOLDER = Path(env("DRAFT_FOLDER", default="_drafts"))
+INBOX_FOLDER = Path(env("INBOX_FOLDER", default="_inbox"))
+OUTBOX_FOLDER = Path(env("OUTBOX_FOLDER", default="_outbox"))
+
 
 def post_about_talks(
     *, path: Path, webhook_url: str, post_now: bool = False
@@ -70,8 +74,7 @@ def post_about_talks(
     for filename in filenames:
         try:
             post = frontmatter.loads(filename.read_text())
-
-            if post["category"].strip().lower() not in IGNORED_TALK_TYPES:
+            if post["category"].strip().lower() not in IGNORED_CATEGORIES:
                 if isinstance(post["date"], datetime.datetime):
                     timestamp = post["date"]
                 else:
@@ -219,14 +222,13 @@ def main(
 
 
 @cli_app.command()
-def copy_schedule_to_inbox(
+def copy_schedule_to_drafts(
     talks_path: Path = typer.Option(
         default="_schedule/talks/", help="Directory where talks are stored"
     )
 ):
-    inbox_folder = Path(env("INBOX_FOLDER", default="inbox"))
-    if not inbox_folder.exists():
-        typer.secho(f"INBOX_FOLDER '{inbox_folder}' does not exist", fg="red")
+    if not DRAFT_FOLDER.exists():
+        typer.secho(f"DRAFT_FOLDER '{DRAFT_FOLDER}' does not exist", fg="red")
         raise typer.Exit()
 
     if not talks_path.exists():
@@ -236,88 +238,94 @@ def copy_schedule_to_inbox(
     filenames = sorted(list(talks_path.glob("*.md")))
 
     for filename in filenames:
-        post = frontmatter.loads(filename.read_text())
-        new_post = frontmatter.loads("")
-        if post["category"].strip().lower() not in IGNORED_TALK_TYPES:
-            if isinstance(post["date"], datetime.datetime):
-                timestamp = post["date"]
-            else:
-                timestamp = parse(post["date"])
-            timestamp = timestamp.astimezone(CONFERENCE_TZ)
+        try:
+            post = frontmatter.loads(filename.read_text())
+            new_post = frontmatter.loads("")
+            if post["category"].strip().lower() not in IGNORED_CATEGORIES:
+                print(post["category"])
+                if isinstance(post["date"], datetime.datetime):
+                    timestamp = post["date"]
+                else:
+                    timestamp = parse(post["date"])
+                timestamp = timestamp.astimezone(CONFERENCE_TZ)
 
-            speakers: list[dict] = post.get("presenters", [])
-            try:
-                speaker = speakers[0]
-            except (IndexError, TypeError):
-                typer.echo(f"No speaker for talk {post['title']}")
-                typer.secho(f"{filename}", fg="red")
-                break
+                speakers: list[dict] = post.get("presenters", [])
+                try:
+                    speaker = speakers[0]
+                except (IndexError, TypeError):
+                    typer.echo(f"No speaker for talk {post['title']}")
+                    typer.secho(f"{filename}", fg="red")
+                    break
 
-            # TODO queue 5 minute to go message separately from this
-            body = {
-                "content": MESSAGE_TEMPLATE.format(
-                    post=post,
-                    speaker=speaker["name"],
-                    video_url=post["video_url"],
-                    timestamp=timestamp,
-                ),
-                "allowed_mentions": {
-                    "parse": ["everyone"],
-                    "users": [],
-                },
-            }
+                # TODO queue 5 minute to go message separately from this
+                body = {
+                    "content": MESSAGE_TEMPLATE.format(
+                        post=post,
+                        speaker=speaker["name"],
+                        video_url=post["video_url"],
+                        timestamp=timestamp,
+                    ),
+                    "allowed_mentions": {
+                        "parse": ["everyone"],
+                        "users": [],
+                    },
+                }
 
-            five_to_go_body = {
-                "content": FIVE_MINUTE_WARNING_TEMPLATE.format(
-                    post=post,
-                    speaker=speaker["name"],
-                    timestamp=timestamp,
-                ),
-                "allowed_mentions": {
-                    "parse": ["everyone"],
-                    "users": [],
-                },
-            }
+                five_to_go_body = {
+                    "content": FIVE_MINUTE_WARNING_TEMPLATE.format(
+                        post=post,
+                        speaker=speaker["name"],
+                        timestamp=timestamp,
+                    ),
+                    "allowed_mentions": {
+                        "parse": ["everyone"],
+                        "users": [],
+                    },
+                }
 
-            # Copy only what we need to "new_post"
-            new_post.content = body["content"]
-            new_post["category"] = post["category"]
-            new_post["date"] = post["date"]
-            new_post["title"] = post["title"]
+                # Copy only what we need to "new_post"
+                new_post.content = body["content"]
+                new_post["category"] = post["category"]
+                new_post["date"] = post["date"]
+                new_post["title"] = post["title"]
 
-            # TODO: do something with "five_to_go_body"
-            # new_post["five_to_go_body"] = five_to_go_body["content"]
+                # TODO: do something with "five_to_go_body"
+                # new_post["five_to_go_body"] = five_to_go_body["content"]
 
-            # TODO: we can customize what gets included with Discord
-            # new_post["allowed_mentions"] = body["allowed_mentions"]
+                # TODO: we can customize what gets included with Discord
+                # new_post["allowed_mentions"] = body["allowed_mentions"]
 
-            destination = inbox_folder.joinpath(filename.name)
+                destination = DRAFT_FOLDER.joinpath(filename.name)
 
-            # TODO: Fix, this made debugging easier...
-            if True:  # not destination.exists():
-                typer.echo(f"copying {filename.name} to {destination.parent}")
-                destination.write_text(frontmatter.dumps(new_post))
-            # else:
-            #     typer.secho(f"{filename.name} already exists", fg="red")
+                # TODO: Fix, this made debugging easier...
+                if True:  # not destination.exists():
+                    typer.echo(f"copying {filename.name} to {destination.parent}")
+                    destination.write_text(frontmatter.dumps(new_post))
+                # else:
+                #     typer.secho(f"{filename.name} already exists", fg="red")
+
+        except Exception as e:
+            typer.secho(f"{filename}::{e}", fg="red")
 
 
 @cli_app.command()
 def process_folder():
-    inbox_folder = Path(env("INBOX_FOLDER", default="inbox"))
-    outbox_folder = Path(env("OUTBOX_FOLDER", default="outbox"))
-
     now = datetime.datetime.now().astimezone(CONFERENCE_TZ)
     typer.secho(f"now: {now}", fg="yellow")
 
-    if not inbox_folder.exists():
-        typer.secho(f"INBOX_FOLDER '{inbox_folder}' does not exist", fg="red")
+    if not DRAFT_FOLDER.exists():
+        typer.secho(f"DRAFT_FOLDER '{DRAFT_FOLDER}' does not exist", fg="red")
         raise typer.Exit()
 
-    if not outbox_folder.exists():
-        typer.secho(f"OUTBOX_FOLDER '{outbox_folder}' does not exist", fg="red")
+    if not INBOX_FOLDER.exists():
+        typer.secho(f"INBOX_FOLDER '{INBOX_FOLDER}' does not exist", fg="red")
         raise typer.Exit()
 
-    filenames = inbox_folder.glob("*.md")
+    if not OUTBOX_FOLDER.exists():
+        typer.secho(f"OUTBOX_FOLDER '{OUTBOX_FOLDER}' does not exist", fg="red")
+        raise typer.Exit()
+
+    filenames = INBOX_FOLDER.glob("*.md")
     for filename in filenames:
         post = frontmatter.loads(filename.read_text())
         if isinstance(post["date"], datetime.datetime):
