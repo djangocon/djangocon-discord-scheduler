@@ -18,10 +18,8 @@ from dateutil.parser import parse
 from dateutil.relativedelta import relativedelta
 from environs import Env
 import frontmatter
-from jinja2 import Template
 import pytz
 import requests
-from slugify import slugify
 import typer
 
 
@@ -221,130 +219,6 @@ def main(
             click.style("Warning: not using celery for posting messages", fg="yellow")
         )
     post_about_talks(path=talks_path, webhook_url=webhook_url, post_now=post_now)
-
-
-@cli_app.command()
-def copy_schedule_to_drafts(
-    talks_path: Path = typer.Option(
-        default="_schedule/talks/", help="Directory where talks are stored"
-    )
-):
-    if not DRAFT_FOLDER.exists():
-        typer.secho(f"DRAFT_FOLDER '{DRAFT_FOLDER}' does not exist", fg="red")
-        raise typer.Exit()
-
-    if not talks_path.exists():
-        typer.secho(f"talks-path '{talks_path}' does not exist", fg="red")
-        raise typer.Exit()
-
-    filenames = sorted(list(talks_path.glob("*.md")))
-
-    for filename in filenames:
-        try:
-            post = frontmatter.loads(filename.read_text())
-            new_post = frontmatter.loads("")
-
-            if isinstance(post["date"], datetime.datetime):
-                timestamp = post["date"]
-            else:
-                timestamp = parse(post["date"])
-            timestamp = timestamp.astimezone(CONFERENCE_TZ)
-
-            speakers: list[dict] = post.get("presenters", [])
-            try:
-                speaker = speakers[0]
-            except (IndexError, TypeError):
-                typer.echo(f"No speaker for talk {post['title']}")
-                typer.secho(f"{filename}", fg="red")
-                speaker = None
-                # break
-
-            new_post["category"] = post["category"]
-            new_post["date"] = post["date"]
-            new_post["slug"] = slugify(post["title"])
-            new_post["title"] = post["title"]
-
-            # TODO: we can customize what gets included with Discord
-            # new_post["allowed_mentions"] = body["allowed_mentions"]
-
-            # Normal messages...
-            template_filename = Path("templates", f"{post['category']}.html")
-            if template_filename.exists():
-                template = Template(template_filename.read_text())
-                context = {
-                    "post": post,
-                    "speaker": speaker["name"] if speaker else None,
-                    "timestamp": timestamp,
-                    "video_url": post["video_url"] if "video_url" in post else None,
-                }
-                output = template.render(context)
-
-                body = {
-                    "content": output,
-                    "allowed_mentions": {
-                        "parse": ["everyone"],
-                        "users": [],
-                    },
-                }
-
-                # Copy only what we need to "new_post"
-                new_post.content = body["content"]
-
-                destination = DRAFT_FOLDER.joinpath(filename.name)
-                typer.echo(f"copying {filename.name} to {destination.parent}")
-                destination.write_text(frontmatter.dumps(new_post))
-
-                # Hack to make timezones stick...
-                destination.write_text(frontmatter.dumps(new_post))
-
-            # Five Minutes...
-            template_filename = Path(
-                "templates", f"{post['category']}-five-minutes.html"
-            )
-            if template_filename.exists():
-                template = Template(template_filename.read_text())
-                context = {
-                    "post": post,
-                    "speaker": speaker["name"] if speaker else None,
-                    "timestamp": timestamp,
-                    "video_url": post["video_url"] if "video_url" in post else None,
-                }
-                output = template.render(context)
-
-                body = {
-                    "content": output,
-                    "allowed_mentions": {
-                        "parse": ["everyone"],
-                        "users": [],
-                    },
-                }
-
-                # Copy only what we need to "new_post"
-                new_post.content = body["content"]
-                new_post["date"] = timestamp - relativedelta(minutes=5, seconds=0)
-                date = new_post["date"]
-                slug = slugify(new_post["title"])
-                talk_filename = "-".join(
-                    [
-                        f"{date.year:04}",
-                        f"{date.month:02}",
-                        f"{date.day:02}",
-                        f"{date.hour:02}",
-                        f"{date.minute:02}",
-                        f"{slug}-five-minutes.md",
-                    ]
-                )
-                # Hack for timezone formatting changing to "-05:00"
-                new_post["date"] = str(new_post["date"]).replace("-05:00", " -0500")
-
-                destination = DRAFT_FOLDER.joinpath(talk_filename)
-                # typer.echo(f"copying {filename.name} to {destination.parent}")
-                destination.write_text(frontmatter.dumps(new_post))
-                # rewrite_post = frontmatter.loads(destination.read_text())
-                # destination.write_text(frontmatter.dumps(rewrite_post))
-
-        except Exception as e:
-            typer.secho(f"{filename}::{e}", fg="red")
 
 
 @cli_app.command()
