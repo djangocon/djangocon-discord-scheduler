@@ -9,8 +9,6 @@ title: Server-Side is Dead! Long Live Server-Side (+ HTMX)
 
 :alarm_clock: Watch the talk at [16:26 CDT](https://time.is/compare/0426PM_22_October_2021_in_Chicago)
 
-:tv: https://youtu.be/t98bKdeUHsU
-
 See the talk information at https://2021.djangocon.us/talks/server-side-is-dead-long-live-server/
 
 Live discussions are happening in <#885229363921043486>.

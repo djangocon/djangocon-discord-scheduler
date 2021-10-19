@@ -9,8 +9,6 @@ title: 'SE HABLA ESPAÑOL: Django y multiples idiomas.'
 
 :alarm_clock: Watch the talk at [15:40 CDT](https://time.is/compare/0340PM_23_October_2021_in_Chicago)
 
-:tv: https://youtu.be/hsOjCAne5wk
-
 See the talk information at https://2021.djangocon.us/talks/se-habla-espanol-django-y-multiples/
 
 Live discussions are happening in <#885229363921043486>.

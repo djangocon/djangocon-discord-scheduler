@@ -9,8 +9,6 @@ title: Illuminate Data with Visualization
 
 :alarm_clock: Watch the talk at [10:31 CDT](https://time.is/compare/1031AM_22_October_2021_in_Chicago)
 
-:tv: https://youtu.be/cSh_aHcsbFM
-
 See the talk information at https://2021.djangocon.us/talks/illuminate-data-with-visualization/
 
 Live discussions are happening in <#885229363921043486>.

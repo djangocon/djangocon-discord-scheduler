@@ -9,8 +9,6 @@ title: Usando filas de tareas (task queues) en aplicaciones web
 
 :alarm_clock: Watch the talk at [10:45 CDT](https://time.is/compare/1045AM_23_October_2021_in_Chicago)
 
-:tv: https://youtu.be/6y0y88MMtj4
-
 See the talk information at https://2021.djangocon.us/talks/usando-filas-de-tareas-task-queues-en/
 
 Live discussions are happening in <#885229363921043486>.

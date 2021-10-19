@@ -9,8 +9,6 @@ title: Using simple database triggers for complex Django problems
 
 :alarm_clock: Watch the talk at [18:06 CDT](https://time.is/compare/0606PM_23_October_2021_in_Chicago)
 
-:tv: https://youtu.be/Tte3d4JjxCk
-
 See the talk information at https://2021.djangocon.us/talks/using-simple-database-triggers-for/
 
 Live discussions are happening in <#885229363921043486>.

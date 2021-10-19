@@ -9,8 +9,6 @@ title: Opening Remarks and Orientation
 
 :alarm_clock: Watch the talk at [10:00 CDT](https://time.is/compare/1000AM_22_October_2021_in_Chicago)
 
-:tv: None
-
 See the talk information at https://2021.djangocon.us/talks/opening-remarks-and-orientation/
 
 Live discussions are happening in <#885229363921043486>.

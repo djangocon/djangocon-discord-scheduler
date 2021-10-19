@@ -9,8 +9,6 @@ title: 'Wagtail Live: bringing a live blogging tool to the Django ecosystem'
 
 :alarm_clock: Watch the talk at [11:00 CDT](https://time.is/compare/1100AM_23_October_2021_in_Chicago)
 
-:tv: https://youtu.be/JKw5IKSao5U
-
 See the talk information at https://2021.djangocon.us/talks/wagtail-live-bringing-a-live-blogging-to/
 
 Live discussions are happening in <#885229363921043486>.

@@ -10,8 +10,6 @@ title: 'Writing tests for a Django application doesn''t have to suck: the simple
 
 :alarm_clock: Watch the talk at [18:41 CDT](https://time.is/compare/0641PM_23_October_2021_in_Chicago)
 
-:tv: https://youtu.be/9dqDij1cSXw
-
 See the talk information at https://2021.djangocon.us/talks/writing-tests-for-a-django-application-t/
 
 Live discussions are happening in <#885229363921043486>.

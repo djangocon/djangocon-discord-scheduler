@@ -9,8 +9,6 @@ title: How we built a mobile application backend with Django in 10 weeks
 
 :alarm_clock: Watch the talk at [09:46 CDT](https://time.is/compare/0946AM_23_October_2021_in_Chicago)
 
-:tv: https://youtu.be/tVn8TLoySH8
-
 See the talk information at https://2021.djangocon.us/talks/how-we-built-a-mobile-application-with/
 
 Live discussions are happening in <#885229363921043486>.

@@ -9,8 +9,6 @@ title: Get interactive! Putting a shell (or a desktop) in your Django app
 
 :alarm_clock: Watch the talk at [11:33 CDT](https://time.is/compare/1133AM_23_October_2021_in_Chicago)
 
-:tv: https://youtu.be/kbrHW--ZLUc
-
 See the talk information at https://2021.djangocon.us/talks/get-interactive-putting-a-shell-or-a-in/
 
 Live discussions are happening in <#885229363921043486>.

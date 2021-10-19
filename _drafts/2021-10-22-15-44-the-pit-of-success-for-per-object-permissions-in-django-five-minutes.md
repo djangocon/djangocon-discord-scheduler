@@ -9,8 +9,6 @@ title: The Pit of Success for Per-Object Permissions in Django
 
 :alarm_clock: Watch the talk at [15:49 CDT](https://time.is/compare/0349PM_22_October_2021_in_Chicago)
 
-:tv: https://youtu.be/ntiy3xfWflQ
-
 See the talk information at https://2021.djangocon.us/talks/the-pit-of-success-for-per-object-in/
 
 Live discussions are happening in <#885229363921043486>.

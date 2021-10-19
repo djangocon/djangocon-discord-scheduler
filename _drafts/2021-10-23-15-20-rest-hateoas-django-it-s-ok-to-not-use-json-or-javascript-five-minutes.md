@@ -9,8 +9,6 @@ title: REST, HATEOAS & Django - It's OK to not use JSON... or Javascript
 
 :alarm_clock: Watch the talk at [15:25 CDT](https://time.is/compare/0325PM_23_October_2021_in_Chicago)
 
-:tv: https://youtu.be/L_UWY-zHlOA
-
 See the talk information at https://2021.djangocon.us/talks/rest-hateoas-django-it-s-ok-to-not-use/
 
 Live discussions are happening in <#885229363921043486>.

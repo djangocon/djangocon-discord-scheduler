@@ -9,8 +9,6 @@ title: 'Herding Ponies: Coordinating and Automating Django Upgrades Across 100+ 
 
 :alarm_clock: Watch the talk at [13:30 CDT](https://time.is/compare/0130PM_22_October_2021_in_Chicago)
 
-:tv: https://youtu.be/ny-3AaNHbbs
-
 See the talk information at https://2021.djangocon.us/talks/herding-ponies-coordinating-and-django/
 
 Live discussions are happening in <#885229363921043486>.

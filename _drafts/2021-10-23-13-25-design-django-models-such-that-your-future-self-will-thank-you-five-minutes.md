@@ -9,8 +9,6 @@ title: "Design django models such that your future self will thank you \U0001F44
 
 :alarm_clock: Watch the talk at [13:30 CDT](https://time.is/compare/0130PM_23_October_2021_in_Chicago)
 
-:tv: https://youtu.be/92jMAbHXahg
-
 See the talk information at https://2021.djangocon.us/talks/design-django-models-such-that-your-self/
 
 Live discussions are happening in <#885229363921043486>.

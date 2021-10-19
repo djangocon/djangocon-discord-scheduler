@@ -9,8 +9,6 @@ title: Lightweight Multi-Tenant Architecture for Django Applications
 
 :alarm_clock: Watch the talk at [16:09 CDT](https://time.is/compare/0409PM_23_October_2021_in_Chicago)
 
-:tv: https://youtu.be/cwsi9VPpFEo
-
 See the talk information at https://2021.djangocon.us/talks/lightweight-multi-tenant-architecture/
 
 Live discussions are happening in <#885229363921043486>.

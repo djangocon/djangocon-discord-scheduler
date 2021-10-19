@@ -9,8 +9,6 @@ title: 'Kontrasto: improving accessibility with Python'
 
 :alarm_clock: Watch the talk at [11:11 CDT](https://time.is/compare/1111AM_22_October_2021_in_Chicago)
 
-:tv: https://youtu.be/ISOflBDh0vE
-
 See the talk information at https://2021.djangocon.us/talks/kontrasto-improving-accessibility-with/
 
 Live discussions are happening in <#885229363921043486>.

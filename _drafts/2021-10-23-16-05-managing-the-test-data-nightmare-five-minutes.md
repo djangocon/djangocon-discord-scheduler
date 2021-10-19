@@ -9,8 +9,6 @@ title: Managing the Test Data Nightmare
 
 :alarm_clock: Watch the talk at [16:10 CDT](https://time.is/compare/0410PM_23_October_2021_in_Chicago)
 
-:tv: https://youtu.be/CS663BxLpE8
-
 See the talk information at https://2021.djangocon.us/talks/managing-the-test-data-nightmare/
 
 Live discussions are happening in <#885229363921043486>.

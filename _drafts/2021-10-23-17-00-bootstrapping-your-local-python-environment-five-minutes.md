@@ -9,8 +9,6 @@ title: Bootstrapping your Local Python Environment
 
 :alarm_clock: Watch the talk at [17:05 CDT](https://time.is/compare/0505PM_23_October_2021_in_Chicago)
 
-:tv: https://youtu.be/InVUiKtKNGw
-
 See the talk information at https://2021.djangocon.us/talks/bootstrapping-your-local-python/
 
 Live discussions are happening in <#885229363921043486>.

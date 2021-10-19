@@ -9,8 +9,6 @@ title: Demystifying Natural Language Processing across Several Industry Vertical
 
 :alarm_clock: Watch the talk at [17:44 CDT](https://time.is/compare/0544PM_23_October_2021_in_Chicago)
 
-:tv: https://youtu.be/hy4voEbOPhM
-
 See the talk information at https://2021.djangocon.us/talks/demystifying-natural-language-processing/
 
 Live discussions are happening in <#885229363921043486>.

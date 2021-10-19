@@ -9,8 +9,6 @@ title: Securing Django Applications
 
 :alarm_clock: Watch the talk at [09:15 CDT](https://time.is/compare/0915AM_23_October_2021_in_Chicago)
 
-:tv: https://youtu.be/qBvCdbZHbmM
-
 See the talk information at https://2021.djangocon.us/talks/securing-django-applications/
 
 Live discussions are happening in <#885229363921043486>.

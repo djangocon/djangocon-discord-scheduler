@@ -10,8 +10,6 @@ title: Búsqueda de texto completo (FTS) en tu sitio web – mi proyecto de Goog
 
 :alarm_clock: Watch the talk at [09:25 CDT](https://time.is/compare/0925AM_23_October_2021_in_Chicago)
 
-:tv: https://youtu.be/gbeAKO0vxhw
-
 See the talk information at https://2021.djangocon.us/talks/busqueda-de-texto-completo-fts-en-tu-web/
 
 Live discussions are happening in <#885229363921043486>.
