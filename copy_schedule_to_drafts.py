@@ -104,9 +104,7 @@ def main(
                 destination.write_text(frontmatter.dumps(new_post))
 
             # Five Minutes...
-            template_filename = Path(
-                "templates", f"{post['category']}-preview.html"
-            )
+            template_filename = Path("templates", f"{post['category']}-preview.html")
             if template_filename.exists():
                 template = Template(template_filename.read_text())
                 context = {
