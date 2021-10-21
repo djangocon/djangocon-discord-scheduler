@@ -7,7 +7,7 @@ title: Securing Django Applications
 
 :tada: Talk starting right now: **Securing Django Applications** by *Gajendra Deshpande*
 
-:tv: https://youtu.be/qBvCdbZHbmM
+:tv: https://youtu.be/XDvm-y_JhTU
 
 See the talk information at https://2021.djangocon.us/talks/securing-django-applications/
 

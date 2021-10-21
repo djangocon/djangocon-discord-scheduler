@@ -7,7 +7,7 @@ title: "Design django models such that your future self will thank you \U0001F44
 
 :tada: Talk starting right now: **Design django models such that your future self will thank you 👋** by *Tarun Garg*
 
-:tv: https://youtu.be/92jMAbHXahg
+:tv: https://youtu.be/dXCh8m4P5Tc
 
 See the talk information at https://2021.djangocon.us/talks/design-django-models-such-that-your-self/
 
