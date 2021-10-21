@@ -6,4 +6,3 @@ _drafts
 _inbox
 _outbox
 celerybeat-schedule
-docker-compose.yml
