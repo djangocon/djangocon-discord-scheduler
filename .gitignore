@@ -105,13 +105,14 @@ celerybeat.pid
 *.sage.py
 
 # Environments
+.docker-env
 .env
 .venv
-env/
-venv/
-ENV/
 env.bak/
+env/
+ENV/
 venv.bak/
+venv/
 
 # Spyder project settings
 .spyderproject
