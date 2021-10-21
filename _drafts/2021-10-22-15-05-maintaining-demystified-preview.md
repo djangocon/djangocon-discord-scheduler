@@ -5,7 +5,7 @@ slug: maintaining-demystified
 title: Maintaining Demystified
 ---
 
-:tada: Talk starting in 5 minutes: **Maintaining Demystified/** by *Katherine Michel*
+:tada: Talk starting in 5 minutes: **Maintaining Demystified/Desmitificando el Mantenimiento** by *Katherine Michel*
 
 :alarm_clock: Watch the talk at [15:10 CDT](https://time.is/compare/0310PM_22_October_2021_in_Chicago)
 
