@@ -16,7 +16,7 @@ services:
     depends_on:
       - redis
     env_file:
-      - ".env"
+      - ".docker-env"
     restart: "unless-stopped"
     stop_grace_period: "3s"
     volumes:
@@ -30,7 +30,7 @@ services:
     depends_on:
       - redis
     env_file:
-      - ".env"
+      - ".docker-env"
     restart: "unless-stopped"
     stop_grace_period: "3s"
     volumes:
