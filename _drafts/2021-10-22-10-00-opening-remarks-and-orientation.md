@@ -7,7 +7,7 @@ title: Opening Remarks and Orientation
 
 :tada: Talk starting right now: **Opening Remarks and Orientation** by *Drew Winstel*
 
-:tv: None
+:tv: https://youtu.be/1UMBbzq4be0
 
 See the talk information at https://2021.djangocon.us/talks/opening-remarks-and-orientation/
 
