@@ -7,7 +7,7 @@ title: The Pit of Success for Per-Object Permissions in Django
 
 :tada: Talk starting right now: **The Pit of Success for Per-Object Permissions in Django** by *Madelaine Boyd*
 
-:tv: https://youtu.be/ntiy3xfWflQ
+:tv: https://youtu.be/1NGGmHZJvyU
 
 See the talk information at https://2021.djangocon.us/talks/the-pit-of-success-for-per-object-in/
 
