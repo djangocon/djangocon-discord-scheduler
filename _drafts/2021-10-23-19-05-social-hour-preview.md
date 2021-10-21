@@ -11,4 +11,4 @@ title: Social Hour
 
 Join us on SpatialChat (ticket holders, check your email for a link) for an hour of socialization with music provided by [DJ Rana Ransom](https://twitter.com/@_tagine).
 
-See the talk information at https://2021.djangocon.us/talks/social-hour-saturday/
+See more info at https://2021.djangocon.us/talks/social-hour-saturday/
