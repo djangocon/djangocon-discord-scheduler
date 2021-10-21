@@ -9,7 +9,7 @@ title: Maintaining Demystified
 
 :tv: English: https://youtu.be/56sxu9vEJNc
 
-:tv: Españnol: https://youtu.be/BKJKAN2kEM8
+:tv: Español: https://youtu.be/BKJKAN2kEM8
 
 See the talk information at https://2021.djangocon.us/talks/maintaining-demystified/ (EN) and https://2021.djangocon.us/talks/desmitificando-el-mantenimiento/ (ES)
 
