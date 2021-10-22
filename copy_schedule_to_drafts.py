@@ -18,7 +18,9 @@ import typer
 
 
 CONFERENCE_TZ = pytz.timezone("America/Chicago")
-IGNORED_SLUGS = ["desmitificando-el-mantenimiento"]
+
+# This override is mainly for talks that we have handwritten.
+IGNORED_SLUGS = ["desmitificando-el-mantenimiento", "maintaining-demystified"]
 
 app = typer.Typer(help="Awesome Announce Talks")
 env = Env()
@@ -71,10 +73,7 @@ def main(
                 new_post["slug"] = slugify(post["title"])
                 new_post["title"] = post["title"]
 
-                # TODO: we can customize what gets included with Discord
-                # new_post["allowed_mentions"] = body["allowed_mentions"]
-
-                # Normal messages...
+                # Normal template messages
                 template_filename = Path("templates", f"{post['category']}.html")
                 if template_filename.exists():
                     template = Template(template_filename.read_text())
@@ -104,8 +103,10 @@ def main(
                     # Hack to make timezones stick...
                     destination.write_text(frontmatter.dumps(new_post))
 
-                # Five Minutes...
-                template_filename = Path("templates", f"{post['category']}-preview.html")
+                # Preview templates messages
+                template_filename = Path(
+                    "templates", f"{post['category']}-preview.html"
+                )
                 if template_filename.exists():
                     template = Template(template_filename.read_text())
                     context = {
